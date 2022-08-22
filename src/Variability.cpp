@@ -1,4 +1,5 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 #include "..\include\Enums.h"
 #include "..\include\Warnings.h"
 
@@ -46,7 +47,7 @@ double Curve(double c1, double c2, double x1, double x2, double x3, double d_e__
  |      Returns:  F()            - in dB
  |
  *===========================================================================*/
-double Variability(double time, double location, double situation, double h_e__meter[2], double delta_h__meter, 
+double Variability(double time, double location, double situation, double h_e__meter[2], double delta_h__meter,
     double f__mhz, double d__meter, double A_ref__db, int climate, int mdvar, long *warnings)
 {
     // Asymptotic values from TN101, Fig 10.13
@@ -105,7 +106,7 @@ double Variability(double time, double location, double situation, double h_e__m
     // situation variability calcs
 
     // if mdvar >= 20, then "Direct situation variability is to be eliminated as it should when
-    //                       considering interference problems.  Note that there may still be a 
+    //                       considering interference problems.  Note that there may still be a
     //                       small residual situation variability" [Hufford, 1982]
     bool plus20 = mdvar >= 20;
     if (plus20)
@@ -123,7 +124,7 @@ double Variability(double time, double location, double situation, double h_e__m
     //
     //////////////////////////////////
 
-    
+
     bool plus10 = mdvar >= 10;
     if (plus10)
         mdvar -= 10;

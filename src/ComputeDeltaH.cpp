@@ -1,13 +1,14 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 
 /*=============================================================================
  |
  |  Description:  Compute the terrain irregularity parameter, delta_h
  |
  |        Input:  pfl[]          - Terrain data
- |                d_start__meter - Distance into the terrain profile to start 
+ |                d_start__meter - Distance into the terrain profile to start
  |                                 considering data, in meters
- |                d_end__meter   - Distance into the terrain profile to end 
+ |                d_end__meter   - Distance into the terrain profile to end
  |                                 considering data, in meters
  |
  |      Outputs:  [None]
@@ -60,7 +61,7 @@ double ComputeDeltaH(double pfl[], double d_start__meter, double d_end__meter)
     fit_y2 = (fit_y2 - fit_y1) / np_s;
 
     std::vector<double> diffs;
-    
+
     // compute the difference between fitted line and actual data
     for (int j = 0; j < n; j++)
     {

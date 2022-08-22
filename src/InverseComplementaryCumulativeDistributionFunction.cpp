@@ -1,11 +1,12 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 
 /*=============================================================================
  |
  |  Description:  This function computes the inverse complementary
  |                cumulative distribution function approximation as
  |                described in Formula 26.2.23 in Abramowitz & Stegun.
- |                This approximation has an error of 
+ |                This approximation has an error of
  |                abs(epsilon(p)) < 4.5e-4
  |
  |        Input:  q              - Quantile, 0.0 < q < 1.0

@@ -1,4 +1,5 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 
 /*=============================================================================
  |
@@ -24,7 +25,7 @@ double H0Curve(int j, double r)
 
 /*=============================================================================
  |
- |  Description:  Troposcatter frequency gain function, H_0(), from 
+ |  Description:  Troposcatter frequency gain function, H_0(), from
  |                [TN101v1, Ch 9.2]
  |
  |        Input:  r              - Input parameter r_1,2

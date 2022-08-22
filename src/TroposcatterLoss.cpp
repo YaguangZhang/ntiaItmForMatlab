@@ -1,4 +1,5 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 
 /*=============================================================================
  |
@@ -23,7 +24,7 @@ double FFunction(double td)
     // select the set of values to use
     if (td <= 10e3)         // <= 10 km
         i = 0;
-    else if (td <= 70e3)    // 10 km to 70 km 
+    else if (td <= 70e3)    // 10 km to 70 km
         i = 1;
     else                    // > 70 km
         i = 2;
@@ -51,7 +52,7 @@ double FFunction(double td)
  |      Returns:  F()               - in dB
  |
  *===========================================================================*/
-double TroposcatterLoss(double d__meter, double theta_hzn[2], double d_hzn__meter[2], double h_e__meter[2], 
+double TroposcatterLoss(double d__meter, double theta_hzn[2], double d_hzn__meter[2], double h_e__meter[2],
     double a_e__meter, double N_s, double f__mhz, double theta_los, double *h0)
 {
     double H_0;
@@ -97,7 +98,7 @@ double TroposcatterLoss(double d__meter, double theta_hzn[2], double d_hzn__mete
         double Delta_H_0 = MIN(H_00, 6.0 * (0.6 - log10(MAX(eta_s, 1.0))) * log10(s) * log10(q));
 
         H_0 = H_00 + Delta_H_0;                             // TN101, Eqn 9.5
-        H_0 = MAX(H_0, 0.0);                                // "If Delta_H_0 would make H_0 negative, use H_0 = 0" [TN101v1, p9.4] 
+        H_0 = MAX(H_0, 0.0);                                // "If Delta_H_0 would make H_0 negative, use H_0 = 0" [TN101v1, p9.4]
 
         if (eta_s < 1.0)    // if <=1, interpolate with the special case of eta_s = 0
             H_0 = eta_s * H_0 + (1.0 - eta_s) * 10 * log10(pow((1.0 + SQRT2 / r_1) * (1.0 + SQRT2 / r_2), 2) * (r_1 + r_2) / (r_1 + r_2 + 2 * SQRT2));

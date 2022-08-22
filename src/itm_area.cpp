@@ -1,4 +1,5 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 #include "..\include\Enums.h"
 #include "..\include\Errors.h"
 
@@ -101,8 +102,8 @@ int ITM_AREA_TLS(double h_tx__meter, double h_rx__meter, int tx_site_criteria, i
  |      Returns:  error             - Error code
  |
  *===========================================================================*/
-int ITM_AREA_TLS_Ex(double h_tx__meter, double h_rx__meter, int tx_site_criteria, int rx_site_criteria, double d__km, 
-    double delta_h__meter, int climate, double N_0, double f__mhz, int pol, double epsilon, double sigma, 
+int ITM_AREA_TLS_Ex(double h_tx__meter, double h_rx__meter, int tx_site_criteria, int rx_site_criteria, double d__km,
+    double delta_h__meter, int climate, double N_0, double f__mhz, int pol, double epsilon, double sigma,
     int mdvar, double time, double location, double situation, double *A__db, long *warnings, IntermediateValues *interValues)
 {
     *warnings = NO_WARNINGS;
@@ -149,7 +150,7 @@ int ITM_AREA_TLS_Ex(double h_tx__meter, double h_rx__meter, int tx_site_criteria
 
     double d__meter = d__km * 1000;
     int propmode = MODE__NOT_SET;
-    rtn = LongleyRice(theta_hzn, f__mhz, Z_g, d_hzn__meter, h_e__meter, gamma_e, N_s, delta_h__meter, h__meter, d__meter, MODE__AREA, 
+    rtn = LongleyRice(theta_hzn, f__mhz, Z_g, d_hzn__meter, h_e__meter, gamma_e, N_s, delta_h__meter, h__meter, d__meter, MODE__AREA,
         &A_ref__db, warnings, &propmode);
     if (rtn != SUCCESS)
         return rtn;

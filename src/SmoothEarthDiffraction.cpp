@@ -1,8 +1,9 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 
 /*=============================================================================
  |
- |  Description:  Compute the smooth earth diffraction loss using the 
+ |  Description:  Compute the smooth earth diffraction loss using the
  |                Vogler 3-radii method
  |
  |        Input:  d__meter          - Path distance, in meters
@@ -18,7 +19,7 @@
  |      Returns:  A_r__db           - Smooth-earth diffraction loss, in dB
  |
  *===========================================================================*/
-double SmoothEarthDiffraction(double d__meter, double f__mhz, double a_e__meter, double theta_los, 
+double SmoothEarthDiffraction(double d__meter, double f__mhz, double a_e__meter, double theta_los,
     double d_hzn__meter[2], double h_e__meter[2], complex<double> Z_g)
 {
     double a__meter[3];

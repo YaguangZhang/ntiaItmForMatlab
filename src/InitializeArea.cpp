@@ -1,4 +1,5 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 #include "..\include\Enums.h"
 
 /*=============================================================================

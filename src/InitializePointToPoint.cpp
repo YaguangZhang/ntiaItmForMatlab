@@ -1,4 +1,5 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 #include "..\include\Enums.h"
 
 /*=============================================================================
@@ -22,7 +23,7 @@
  |      Returns:  [None]
  |
  *===========================================================================*/
-void InitializePointToPoint(double f__mhz, double h_sys__meter, double N_0, int pol, 
+void InitializePointToPoint(double f__mhz, double h_sys__meter, double N_0, int pol,
     double epsilon, double sigma, complex<double> *Z_g, double *gamma_e, double *N_s)
 {
     // gamma_a is the curvature of the actual earth, ~1 / 6370 km

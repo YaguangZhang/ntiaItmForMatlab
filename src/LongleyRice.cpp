@@ -1,11 +1,12 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 #include "..\include\Enums.h"
 #include "..\include\Errors.h"
 #include "..\include\Warnings.h"
 
 /*=============================================================================
  |
- |  Description:  Compute the reference attenuation, using the 
+ |  Description:  Compute the reference attenuation, using the
  |                Longley-Rice method
  |
  |        Input:  theta_hzn[2]      - Terminal horizon angles
@@ -27,8 +28,8 @@
  |      Returns:  error             - Error code
  |
  *===========================================================================*/
-int LongleyRice(double theta_hzn[2], double f__mhz, complex<double> Z_g, double d_hzn__meter[2], 
-    double h_e__meter[2], double gamma_e, double N_s, double delta_h__meter, double h__meter[2], 
+int LongleyRice(double theta_hzn[2], double f__mhz, complex<double> Z_g, double d_hzn__meter[2],
+    double h_e__meter[2], double gamma_e, double N_s, double delta_h__meter, double h__meter[2],
     double d__meter, int mode, double *A_ref__db, long *warnings, int *propmode)
 {
     // effective earth radius

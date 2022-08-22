@@ -1,4 +1,5 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 #include "..\include\Enums.h"
 #include "..\include\Errors.h"
 
@@ -45,6 +46,21 @@ int ITM_P2P_TLS(double h_tx__meter, double h_rx__meter, double pfl[], int climat
 
     return ITM_P2P_TLS_Ex(h_tx__meter, h_rx__meter, pfl, climate, N_0, f__mhz, pol, epsilon, sigma, mdvar,
         time, location, situation, A__db, warnings, &interValues);
+}
+
+// Custom ITM_P2P_TLS to return path loss prediction directly.
+double ITM_P2P_TLS_PL(double h_tx__meter, double h_rx__meter, double pfl[], int8_t climate, double N_0, double f__mhz,
+    int8_t pol, double epsilon, double sigma, int8_t mdvar, double time, double location, double situation)
+{
+    IntermediateValues interValues;
+    // -1 to indicate invalid path loss.
+    double A__db = -1;
+    long warnings;
+
+    ITM_P2P_TLS_Ex(h_tx__meter, h_rx__meter, pfl, int(climate), N_0, f__mhz, int(pol), epsilon, sigma, int(mdvar),
+        time, location, situation, &A__db, &warnings, &interValues);
+
+    return A__db;
 }
 
 /*=============================================================================
@@ -223,7 +239,7 @@ int ITM_P2P_TLS_Ex(double h_tx__meter, double h_rx__meter, double pfl[], int cli
     // Reference attenuation, in dB
     double A_ref__db = 0;
     int propmode = MODE__NOT_SET;
-    rtn = LongleyRice(theta_hzn, f__mhz, Z_g, d_hzn__meter, h_e__meter, gamma_e, N_s, delta_h__meter, h__meter, d__meter, MODE__P2P, 
+    rtn = LongleyRice(theta_hzn, f__mhz, Z_g, d_hzn__meter, h_e__meter, gamma_e, N_s, delta_h__meter, h__meter, d__meter, MODE__P2P,
         &A_ref__db, warnings, &propmode);
     if (rtn != SUCCESS)
         return rtn;

@@ -1,4 +1,5 @@
 #include "..\include\itm.h"
+#include "..\include\itmprivate.h"
 
 /*=============================================================================
  |
@@ -13,7 +14,7 @@
  |                h__meter[2]       - Terminal heights, in meters
  |                mode           - Area or Point-to-Point mode flag
  |                theta_los      - Angular distance of line-of-sight region
- |                d_sML__meter   - Maximum line-of-sight distance for 
+ |                d_sML__meter   - Maximum line-of-sight distance for
  |                                 a smooth earth, in meters
  |                f__mhz         - Frequency, in MHz
  |
@@ -22,7 +23,7 @@
  |      Returns:  A_d__db        - Diffraction loss, in dB
  |
  *===========================================================================*/
-double DiffractionLoss(double d__meter, double d_hzn__meter[2], double h_e__meter[2], complex<double> Z_g, double a_e__meter, 
+double DiffractionLoss(double d__meter, double d_hzn__meter[2], double h_e__meter[2], complex<double> Z_g, double a_e__meter,
     double delta_h__meter, double h__meter[2], int mode, double theta_los, double d_sML__meter, double f__mhz)
 {
     double A_k__db = KnifeEdgeDiffraction(d__meter, f__mhz, a_e__meter, theta_los, d_hzn__meter);
