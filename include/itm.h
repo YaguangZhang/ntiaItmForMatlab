@@ -1,10 +1,18 @@
+#pragma once
+
 #include <math.h>
 #include <stdlib.h>
 
 #include <stdint.h>
 
+#ifdef _WIN32
 // Export the DLL functions as "C" and not C++
 #define DLLEXPORT extern "C" __declspec(dllexport)
+#endif
+#ifdef __linux__
+#define DLLEXPORT extern "C"
+#endif
+
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #define DIM(x, y) (((x) > (y)) ? (x - y) : (0))
