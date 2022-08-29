@@ -65,10 +65,11 @@ A__dB = calllib('itm', 'ITM_P2P_TLS_PL', 15, 3, ...
     pfl, int8(5), 301, 3500, ...
     int8(1), 15, 0.005, int8(1), ...
     50, 50, 50);
+toc;
+
 assert(round(A__dB*10) == round(expected_A__dB*10), ...
     ['Unexpected output path loss: ', num2str(A__dB), ' dB! ', ...
     'It should be about ', num2str(expected_A__dB), ' dB!'])
-toc;
 testCnt = testCnt+1;
 disp(['Test #', num2str(testCnt), ': passed!'])
 
@@ -92,7 +93,10 @@ A__dB = calllib('itm', 'ITM_P2P_TLS_PL', 15, 3, ...
     int8(1), 15, 0.005, int8(1), ...
     50, 50, 50);
 toc;
+
 assert(A__dB>0, ['Unexpected output path loss: ', num2str(A__dB), ' dB! '])
+testCnt = testCnt+1;
+disp(['Test #', num2str(testCnt), ': passed!'])
 
 %% Clean Things Up
 % Unload the library.
