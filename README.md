@@ -1,3 +1,23 @@
+# NTIA Implementation of Irregular Terrain Model (ITM) Modified for Matlab #
+
+The original [NTIA ITM model](https://github.com/NTIA/itm) was implement in C++, which does not work with Matlab. This repository modified the source code so that the model would appear to be written in C and thus become loadable in Maltab.
+
+As an example, the point-to-point mode function `ITM_P2P_TLS` is exposed as `ITM_P2P_TLS_PL`, which directly returns the pathloss prediction value (instead of error code).
+
+## Notes
+
+- Tested with Matlab 2021a on Ubuntu and Matlab 2021b on Windows.
+- On Windows, please use the library files `itm.dll` (built in Visual Studio 2019) and `itm.h` under `LibReleasesForMatlab`.
+- On Ubuntu, please use `itm.so` (built based on the included CMake file `CMakeLists.txt`) and `itm.h` in the same directory.
+- Note that the header file `itm.h` we feed into Matlab is different from that in the source code (under directory `include`).
+- More information about the original NTIA ITM library can be found below.
+
+## Contact
+
+* Dr. **Yaguang Zhang** | *Purdue University* | Email: yaguangzhang@outlook.com
+
+---
+
 # ITS Irregular Terrain Model (ITM) #
 
 This code repository contains the ITS Irregular Terrain Model (ITM). ITM predicts terrestrial radiowave propagation for frequencies between 20 MHz and 20 GHz based on electromagnetic theory and empirical models developed by Anita Longley and Phil Rice. Propagation mechanisms considered include free space loss, diffraction, and troposcatter. Specifically, ITM predicts attenuation as a function of distance (greater than 1 km), terminal heights, meteorological conditions, terrain effects, and the variability of the signal in time and in space.
@@ -12,7 +32,7 @@ Users of ITM have two options to immediately begin using ITM:
 
 2. A supporting command-line driver is also included in this repository, with its own corresponding [readme](cmdREADME.md).  This tool allows a user to call ITM without any programming required through the use of ASCII input/output files.
 
-A select set of example inputs and outputs are provided for testing purposes.  This is not a comprehensive validation test set.  For ITM in Point-to-Point Prediction Mode, [p2p.csv](p2p.csv) defines the set of inputs and outputs with [pfls.csv](pfls.csv) containing the corresponding set of terrain profiles.  For Area Prediction Mode, inputs and outputs are defined in [area.csv](area.csv). 
+A select set of example inputs and outputs are provided for testing purposes.  This is not a comprehensive validation test set.  For ITM in Point-to-Point Prediction Mode, [p2p.csv](p2p.csv) defines the set of inputs and outputs with [pfls.csv](pfls.csv) containing the corresponding set of terrain profiles.  For Area Prediction Mode, inputs and outputs are defined in [area.csv](area.csv).
 
 ## Inputs ##
 
