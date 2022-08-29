@@ -1,8 +1,8 @@
-#include "..\include\itm.h"
-#include "..\include\itmprivate.h"
-#include "..\include\Enums.h"
-#include "..\include\Errors.h"
-#include "..\include\Warnings.h"
+#include "../include/itm.h"
+#include "../include/itmprivate.h"
+#include "../include/Enums.h"
+#include "../include/Errors.h"
+#include "../include/Warnings.h"
 
 /*=============================================================================
  |

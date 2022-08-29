@@ -1,5 +1,5 @@
-#include "..\include\itm.h"
-#include "..\include\itmprivate.h"
+#include "../include/itm.h"
+#include "../include/itmprivate.h"
 
 /*=============================================================================
  |
